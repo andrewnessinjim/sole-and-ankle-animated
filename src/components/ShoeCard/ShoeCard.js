@@ -81,15 +81,14 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   width: 100%;
   transform: scale(1);
+  will-change: transform;
   transform-origin: bottom;
-  ${Link}:hover &, ${Link}:focus & {
-    transform: scale(1.1);
-  }
 
-  @media (prefers-reduced-motion: no-preference) {
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     transition: 450ms transform;
 
     ${Link}:hover &, ${Link}:focus & {
+      transform: scale(1.1);
       transition: 100ms transform;
     }
   }
@@ -133,15 +132,12 @@ const Flag = styled.div`
   color: var(--color-white);
   border-radius: 2px;
 
-  ${Link}:hover &, ${Link}:focus & {
-    transform: translateX(-20px);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     transition: 450ms transform;
 
     ${Link}:hover &, ${Link}:focus & {
       transition: 50ms transform;
+      transform: translateX(-20px);
     }
   }
 `;
