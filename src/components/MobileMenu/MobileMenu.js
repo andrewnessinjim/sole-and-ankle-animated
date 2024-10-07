@@ -66,6 +66,14 @@ const microSlideIn = keyframes`
   }
 `;
 
+const doorOpen = keyframes`
+  from {
+    transform: rotateY(90deg);
+  } to {
+    transform: rotateY(0deg);
+  }
+`;
+
 const OVERLAY_ANIMATION_DURATION = 150;
 const Overlay = styled(DialogOverlay)`
   position: fixed;
@@ -77,17 +85,19 @@ const Overlay = styled(DialogOverlay)`
   display: flex;
   justify-content: flex-end;
   animation: ${fadeIn} ${OVERLAY_ANIMATION_DURATION}ms;
+  perspective: 650px;
 `;
 
-const CONTENT_BG_ANIMATION_DURATION = 250;
+const CONTENT_BG_ANIMATION_DURATION = 450;
 const ContentBackground = styled(DialogContent)`
   background: white;
   width: 300px;
   height: 100%;
   padding: 24px 32px;
-  animation: ${slideIn} ${CONTENT_BG_ANIMATION_DURATION}ms;
+  animation: ${doorOpen} ${CONTENT_BG_ANIMATION_DURATION}ms;
   animation-delay: ${OVERLAY_ANIMATION_DURATION}ms;
   animation-fill-mode: backwards;
+  transform-origin: right;
 `;
 
 const CONTENT_ANIMATION_DURATION = 500;
