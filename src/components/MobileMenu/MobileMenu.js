@@ -20,12 +20,24 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           </CloseButton>
           <Filler />
           <Nav>
-            <NavLink href="/sale" index={1}>Sale</NavLink>
-            <NavLink href="/new" index={2}>New&nbsp;Releases</NavLink>
-            <NavLink href="/men" index={3}>Men</NavLink>
-            <NavLink href="/women" index={4}>Women</NavLink>
-            <NavLink href="/kids" index={5}>Kids</NavLink>
-            <NavLink href="/collections" index={6}>Collections</NavLink>
+            <NavLink href="/sale" index={1}>
+              Sale
+            </NavLink>
+            <NavLink href="/new" index={2}>
+              New&nbsp;Releases
+            </NavLink>
+            <NavLink href="/men" index={3}>
+              Men
+            </NavLink>
+            <NavLink href="/women" index={4}>
+              Women
+            </NavLink>
+            <NavLink href="/kids" index={5}>
+              Kids
+            </NavLink>
+            <NavLink href="/collections" index={6}>
+              Collections
+            </NavLink>
           </Nav>
           <Footer>
             <SubLink href="/terms">Terms and Conditions</SubLink>
@@ -94,8 +106,10 @@ const ContentBackground = styled(DialogContent)`
   width: 300px;
   height: 100%;
   padding: 24px 32px;
-  animation: ${doorOpen} ${CONTENT_BG_ANIMATION_DURATION}ms;
-  animation-delay: ${OVERLAY_ANIMATION_DURATION}ms;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${doorOpen} ${CONTENT_BG_ANIMATION_DURATION}ms;
+    animation-delay: ${OVERLAY_ANIMATION_DURATION}ms;
+  }
   animation-fill-mode: backwards;
   transform-origin: right;
 `;
@@ -137,7 +151,7 @@ const NavLink = styled.a`
   }
 
   animation: ${microSlideIn} 250ms;
-  animation-delay: ${p => p.index * 30 + NAV_LINK_ANIMATION_DELAY + "ms" };
+  animation-delay: ${(p) => p.index * 30 + NAV_LINK_ANIMATION_DELAY + "ms"};
   animation-fill-mode: backwards;
 `;
 
