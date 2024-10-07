@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { QUERIES, WEIGHTS } from "../../constants";
+import { QUERIES } from "../../constants";
 import Logo from "../Logo";
 import Icon from "../Icon";
 import UnstyledButton from "../UnstyledButton";
 import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
 import VisuallyHidden from "../VisuallyHidden";
+import NavLink from "../NavLink/NavLink";
 
 const NAV_LABELS = [
   "Sale",
@@ -30,11 +31,7 @@ const Header = () => {
         </LogoWrapper>
         <DesktopNav>
           {NAV_LABELS.map((navLabel) => (
-            <NavLinkWrapper>
-              <NavLink href="/sale">
-                <NavSpan data-hover={navLabel}>{navLabel}</NavSpan>
-              </NavLink>
-            </NavLinkWrapper>
+            <NavLink href="/sale">{navLabel}</NavLink>
           ))}
         </DesktopNav>
         <MobileActions>
@@ -121,47 +118,6 @@ const Filler = styled.div`
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
-  }
-`;
-
-const NavLinkWrapper = styled.div`
-  display: inline-block;
-  /* padding: 8px; */
-`;
-
-const NavLink = styled.a`
-  display: inline-block;
-  line-height: 1;
-  font-size: 1.125rem;
-  overflow: hidden;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-gray-900);
-  font-weight: ${WEIGHTS.medium};
-
-  ${NavLinkWrapper}:first-of-type & {
-    color: var(--color-secondary);
-  }
-`;
-
-const NavSpan = styled.span`
-  display: block;
-  line-height: 1;
-  height: 1em;
-  position: relative;
-
-  transition: 250ms transform ease-in;
-  &:hover {
-    transform: translateY(-100%);
-  }
-
-  &::after {
-    content: attr(data-hover);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    font-weight: bold;
-    line-height: 1;
   }
 `;
 
