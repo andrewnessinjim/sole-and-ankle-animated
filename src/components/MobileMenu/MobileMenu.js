@@ -80,7 +80,7 @@ const microSlideIn = keyframes`
 
 const doorOpen = keyframes`
   from {
-    transform: rotateY(90deg);
+    transform: rotateY(-90deg);
   } to {
     transform: rotateY(0deg);
   }
@@ -100,7 +100,7 @@ const Overlay = styled(DialogOverlay)`
   perspective: 650px;
 `;
 
-const CONTENT_BG_ANIMATION_DURATION = 450;
+const CONTENT_BG_ANIMATION_DURATION = 650;
 const ContentBackground = styled(DialogContent)`
   background: white;
   width: 300px;
