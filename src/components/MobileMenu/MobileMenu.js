@@ -80,7 +80,7 @@ const microSlideIn = keyframes`
 
 const doorOpen = keyframes`
   from {
-    transform: rotateY(-90deg);
+    transform: rotateY(-120deg);
   } to {
     transform: rotateY(0deg);
   }
@@ -107,10 +107,9 @@ const ContentBackground = styled(DialogContent)`
   height: 100%;
   padding: 24px 32px;
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${doorOpen} ${CONTENT_BG_ANIMATION_DURATION}ms;
+    animation: ${doorOpen} ${CONTENT_BG_ANIMATION_DURATION}ms both;
     animation-delay: ${OVERLAY_ANIMATION_DURATION}ms;
   }
-  animation-fill-mode: backwards;
   transform-origin: right;
 `;
 
